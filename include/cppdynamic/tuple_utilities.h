@@ -2,6 +2,7 @@
 
 #include <tuple>
 #include <vector>
+#include <algorithm>
 
 #include "config.h"
 #include "any.h"

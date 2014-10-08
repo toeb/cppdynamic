@@ -196,7 +196,7 @@ DynamicObject & DynamicObject::operator=(const DynamicObject && other){
 template<typename T> T DynamicObject::as(){
   any result;
   _implementation->tryConvert(default_value(), result);
-  return result;
+  return result.as<T>();
 
 }
 template<typename T> DynamicObject::operator T(){
@@ -228,7 +228,7 @@ DynamicObject DynamicObject::get(const member_name_type & name)const{
 
 template<typename... TArgs>
 DynamicObject DynamicObject::operator()(TArgs && ... args){
-  return call({ args... });
+  return call(std::vector<dynamic::any>{ args... });
 };
 
 auto DynamicObject::operator[](const member_name_type & key)->DynamicProperty{

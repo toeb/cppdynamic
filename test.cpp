@@ -11,14 +11,16 @@ int main(){
   {
     // dynamic object can be a complex type
     dynamic::DynamicObject uut = std::string("hello");
-    assert("hello" == (std::string)uut);
+    std::string res = uut;
+    assert("hello" == res);
   }
   {
     // dynamic object can be reassigned
     dynamic::DynamicObject uut = 33;
     assert(33 == (int)uut);
     uut = std::string("hello");
-    assert("hello" == (std::string)uut);
+    std::string res = uut;
+    assert("hello" == res);
   }
   {
     //dynamic object can be a functor
@@ -38,15 +40,11 @@ int main(){
     std::string prop2 = uut["prop2"];
     int prop31 = uut["prop3"]["prop31"];
     int result = uut["prop4"](5, 6);
-    std::function<int(int, int)> prop4 = uut["prop4"];
-    auto result2 = prop4(3, 4);
-
 
     assert(prop1 == 33);
     assert(prop2 == "hello");
     assert(prop31 == 5);
     assert(result == 11);
-    assert(result2 == 7);
   }
 
   {
