@@ -1,7 +1,4 @@
-cppdynamic
-==========
-
-
+# cppdynamic
 
 Dynamic object are useful, especially in rapid prototyping, non-performance critical situations, and situations in which data/functions -bags are needed (non schema specific data).
 Also when serializing and deserializing dynamic objects can be a very valuable asset.
